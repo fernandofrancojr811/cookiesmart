@@ -1,0 +1,12 @@
+# app/menu/page.tsx patch instructions
+
+1) Import CookieLoader at the top:
+   import CookieLoader from "@/src/components/CookieLoader";
+
+2) Find the heading with the text: `What would you like to do today?` and change to:
+   <h1 className="text-2xl font-semibold flex items-center gap-2">
+     What would you like to do today?
+     <CookieLoader />
+   </h1>
+
+3) Remove the old loader/spinner that appears under the "Calculate Recipe Conversions" button.

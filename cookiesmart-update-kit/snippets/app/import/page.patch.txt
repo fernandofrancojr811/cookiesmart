@@ -1,0 +1,29 @@
+# app/import/page.tsx patch instructions
+
+1) Imports to add:
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { searchOnlineRecipes, importOnlineRecipe } from "@/src/data/recipes-online";
+
+2) Local state at top of component:
+const [q,setQ] = useState("");
+const [online,setOnline] = useState<any[]>([]);
+const router = useRouter();
+
+3) Add a new Online Recipes section where appropriate (below your existing cards):
+<div className="rounded-lg p-3 bg-white shadow mt-4">
+  <div className="font-medium mb-2">Browse Online Recipes (TheMealDB)</div>
+  <div className="flex gap-2">
+    <input className="border rounded p-2 flex-1" placeholder="Search meals..." value={q} onChange={e=>setQ(e.target.value)} />
+    <button className="px-3 py-2 rounded bg-blue-600 text-white" onClick={async()=>setOnline(await searchOnlineRecipes(q))}>Search</button>
+  </div>
+  <div className="mt-3 space-y-2">
+    {online.map((r)=>(
+      <div key={r.id} className="p-2 rounded border">
+        <div className="font-semibold">{r.title}</div>
+        <div className="text-sm opacity-70">{r.category} • {r.area}</div>
+        <button className="mt-2 px-3 py-1.5 rounded bg-pink-200" onClick={()=>importOnlineRecipe(r, router)}>Import → Convert</button>
+      </div>
+    ))}
+  </div>
+</div>
