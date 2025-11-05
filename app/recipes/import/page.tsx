@@ -10,7 +10,7 @@ import { Card } from "@/src/components/Card";
 import SecondaryButton from "@/src/components/SecondaryButton";
 import BottomNav from "@/src/components/BottomNav";
 
-export default function ImportPage() {
+export default function ImportRecipePage() {
   const router = useRouter();
   const [q, setQ] = useState("");
   const [online, setOnline] = useState<any[]>([]);
@@ -59,7 +59,7 @@ export default function ImportPage() {
           <SecondaryButton onClick={() => router.push("/menu")}>Back</SecondaryButton>
         </div>
 
-        {/* Paste Recipe Form */}
+        {/* Paste Recipe Form - RecipePasteForm */}
         <div style={{ marginBottom: "20px" }}>
           <Card title="📋 Paste Recipe Text">
             <p style={{ fontSize: "14px", color: "#64748b", marginBottom: "16px" }}>
@@ -95,7 +95,7 @@ export default function ImportPage() {
           </Card>
         </div>
 
-        {/* File Upload Dropzone */}
+        {/* File Upload Dropzone - FileUploadDropzone */}
         <div style={{ marginBottom: "20px" }}>
           <Card title="⬆️ Upload Recipe File">
             <p style={{ fontSize: "14px", color: "#64748b", marginBottom: "16px" }}>
@@ -144,7 +144,7 @@ export default function ImportPage() {
           </Card>
         </div>
 
-        {/* Library */}
+        {/* Recipe Library Grid - RecipeLibraryGrid */}
         <div style={{ marginBottom: "20px" }}>
           <Card title="🍳 Recipe Library">
             <p style={{ fontSize: "14px", color: "#64748b", marginBottom: "16px" }}>
@@ -293,3 +293,4 @@ export default function ImportPage() {
     </>
   );
 }
+
